@@ -12,6 +12,8 @@ from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
 import random
 
+
+
 words=[]
 classes = []
 documents = []
@@ -94,3 +96,14 @@ hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5,
 model.save('chatbot_model.h5', hist)
 
 print("model created")
+
+import pydot, graphviz
+
+# from keras.utils import plot_model
+
+from keras.utils.vis_utils import plot_model
+
+
+plot_model(model, to_file='model.png')
+
+
